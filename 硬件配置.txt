@@ -1,0 +1,17 @@
+第一阶段：
+  小车部分
+	小车底盘（AS-4WD)，配套树莓派支架
+	树莓派B+
+	16SD卡
+	树莓派电机驱动板
+	11.1v/2200mAh锂电池
+	HDMI线
+	无线键鼠
+	
+	说明：详细硬件型号参考：http://item.taobao.com/item.htm?spm=a1z09.2.9.83.p6AEoI&id=36346931740&_u=sub24hq983b
+	如果你只想做遥控小车，不建议买1400的套餐，算下来可以省400块左右吧。
+
+  其他：
+	Mini音响
+	树莓派USB麦克风
+	摄象头：RASPBERRY PI RPI CAMERA OV5647
