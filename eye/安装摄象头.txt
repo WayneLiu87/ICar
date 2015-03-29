@@ -1,0 +1,28 @@
+﻿摄象头：RASPBERRY PI RPI CAMERA OV5647
+已经安装好系统的树莓派系统
+硬件安装步骤：
+	1.软排线，90度垂直连接器，HDMI口和网口之间那个插座。连接时触点一侧朝向HDMI接口。
+	2.使用前撕掉镜头上的保护膜。
+	3.裸板，注意ESD伤害，谨防静电！
+	
+软件安装步骤：
+	1.RPi 3.4.11固件已更新摄像头驱动，raspi-config为摄像头更新配置选项，您只需联网后执行一次sudo apt-get update; sudo apt-get upgrade即可更新到最新系统。
+	2.raspi-config中选择camera，启动RPi固件中的摄像头驱动，然后重启树莓派。
+	3.执行命令raspivid即对视频进行操作。
+	4.执行命令raspistill即对图像进行操作。
+	5.捕捉到的视频片段需要用mplayer播放。
+	6.通过nc命令（ncat – Concatenate and redirect sockets）可将摄像头的输入数据，直接重定向到网络端口实现输出。
+	
+	   Example commands
+
+          Capture an image in jpeg format:
+
+          raspistill -o image.jpg
+
+          Capture a 5s video in h264 format:
+
+          raspivid -o video.h264
+
+          Capture a 10s video:
+
+          raspivid -o video.h264 -t 10000
