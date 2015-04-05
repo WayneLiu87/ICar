@@ -1,4 +1,4 @@
-1.ÅäÖÃ/etc/profile,Ìí¼ÓÒÔÏÂÃüÁî
+ï»¿1.é…ç½®/etc/profile,æ·»åŠ ä»¥ä¸‹å‘½ä»¤
 
 export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt
 export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
@@ -8,7 +8,7 @@ export CATALINA_HOME=/home/pi/Program/apache-tomcat-8.0.21
 export CATALINA_BASE=/home/pi/Program/apache-tomcat-8.0.21
 
 
-2.ÅäÖÃtomcatÏÂµÄ conf/tomcat-users.xml
+2.é…ç½®tomcatä¸‹çš„ conf/tomcat-users.xml
 
 <role rolename="manager-gui"/>
   <role rolename="admin-gui"/>
