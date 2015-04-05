@@ -1,0 +1,16 @@
+1.配置/etc/profile,添加以下命令
+
+export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+
+export CATALINA_HOME=/home/pi/Program/apache-tomcat-8.0.21
+export CATALINA_BASE=/home/pi/Program/apache-tomcat-8.0.21
+
+
+2.配置tomcat下的 conf/tomcat-users.xml
+
+<role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+
+  <user username="admin" password="admin" roles="manager-gui,admin-gui"/>
