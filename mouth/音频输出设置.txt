@@ -1,0 +1,22 @@
+﻿Raspberry Pi(树莓派)声音输出可以设置为自动，耳机输出，从HDMI输出三种，默认为自动
+
+pi@aborn ~ $ sudo apt-get install alsa-utils
+pi@aborn ~ $ sudo modprobe snd-bcm2835    #把声音模块加入内核
+pi@aborn ~ $ sudo aplay /usr/share/sounds/alsa/Front_Center.wav 
+pi@aborn /opt/vc $ sudo amixer cset numid=3 2
+numid=3,iface=MIXER,name='PCM Playback Route'
+; type=INTEGER,access=rw------,values=1,min=0,max=2,step=0
+: values=2
+pi@aborn /opt/vc $ sudo aplay /usr/share/sounds/alsa/Front_Center.wav 
+Playing WAVE '/usr/share/sounds/alsa/Front_Center.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Mono
+pi@aborn /opt/vc $ sudo amixer cset numid=3 
+numid=3,iface=MIXER,name='PCM Playback Route'
+; type=INTEGER,access=rw------,values=1,min=0,max=2,step=0
+: values=0
+pi@aborn /opt/vc $ sudo amixer cset numid=3 1
+numid=3,iface=MIXER,name='PCM Playback Route'
+; type=INTEGER,access=rw------,values=1,min=0,max=2,step=0
+: values=1
+
+values取不同的值分别代表：
+0=auto(自动), 1=headphones(耳机), 2=hdmi
