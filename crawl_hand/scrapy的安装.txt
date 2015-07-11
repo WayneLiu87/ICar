@@ -1,0 +1,296 @@
+﻿http://blog.csdn.net/nothi/article/details/18712577
+
+sudo apt-get install gcc g++ gdb python-dev python make  
+sudo apt-get install python-lxml
+sudo apt-get install python-pip
+sudo apt-get install ipython
+sudo pip install  scrapy
+
+
+
+http://www.tuicool.com/articles/URNVV3E
+
+安装python爬虫scrapy踩过的那些坑和编程外的思考
+时间 2015-06-06 21:07:00  博客园精华区
+原文  http://www.cnblogs.com/rwxwsblog/p/4557123.html
+主题 Scrapy Linux
+这些天应朋友的要求抓取某个论坛帖子的信息，网上搜索了一下开源的爬虫资料，看了许多对于开源爬虫的比较发现开源爬虫scrapy比较好用。但是以前一直用的java和php，对python不熟悉，于是花一天时间粗略了解了一遍python的基础知识。于是就开干了，没想到的配置一个运行环境就花了我一天时间。下面记录下安装和配置scrapy踩过的那些坑吧。
+
+运行环境：CentOS 6.0 虚拟机
+
+开始上来先得安装python运行环境。然而我运行了一下python命令，发现已经自带了，窃（大）喜（坑）。于是google搜索了一下安装步骤，pip install Scrapy直接安装，发现不对。少了pip，于是安装pip。再次pip install Scrapy，发现少了python-devel，于是这么来回折腾了一上午。后来下载了scrapy的源码安装，突然曝出一个需要python2.7版本，再通过python --version查看，一个2.6映入眼前；顿时千万个草泥马在心中奔腾。
+
+于是查看了官方文档（http://doc.scrapy.org/en/master/intro/install.html），果然是要python2.7。没办法，只能升级python的版本了。
+
+1、升级python
+
+下载python2.7并安装
+#wget https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tgz
+#tar -zxvf Python-2.7.10.tgz
+#cd Python-2.7.10
+#./configure  
+#make all             
+#make install  
+#make clean  
+#make distclean
+检查python版本
+#python --version
+发现还是2.6
+
+更改python命令指向
+#mv /usr/bin/python /usr/bin/python2.6.6_bak
+#ln -s /usr/local/bin/python2.7 /usr/bin/python
+再次检查版本
+# python --version
+Python 2.7.10
+到这里，python算是升级完成了，继续安装scrapy。于是pip install scrapy，还是报错。
+
+Collecting Twisted>=10.0.0 (from scrapy)
+  Could not find a version that satisfies the requirement Twisted>=10.0.0 (from scrapy) (from versions: )
+No matching distribution found for Twisted>=10.0.0 (from scrapy)
+少了 Twisted，于是安装 Twisted
+
+2、安装Twisted
+
+下载Twisted（https://pypi.python.org/packages/source/T/Twisted/Twisted-15.2.1.tar.bz2#md5=4be066a899c714e18af1ecfcb01cfef7）
+安装
+cd Twisted-15.2.1
+python setup.py install
+查看是否安装成功
+python
+Python 2.7.10 (default, Jun  5 2015, 17:56:24) 
+[GCC 4.4.4 20100726 (Red Hat 4.4.4-13)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import twisted
+>>>
+此时索命twisted已经安装成功。于是继续pip install scrapy，还是报错。
+
+3、安装libxlst、libxml2和xslt-config
+
+Collecting libxlst
+  Could not find a version that satisfies the requirement libxlst (from versions: )
+No matching distribution found for libxlst
+Collecting libxml2
+  Could not find a version that satisfies the requirement libxml2 (from versions: )
+No matching distribution found for libxml2
+wget http://xmlsoft.org/sources/libxslt-1.1.28.tar.gz
+cd libxslt-1.1.28/
+./configure
+make
+make install
+wget ftp://xmlsoft.org/libxml2/libxml2-git-snapshot.tar.gz
+cd libxml2-2.9.2/
+./configure
+make
+make install
+安装好以后继续pip install scrapy，幸运之星仍未降临
+
+4、安装cryptography
+
+Failed building wheel for cryptography
+下载cryptography（https://pypi.python.org/packages/source/c/cryptography/cryptography-0.4.tar.gz）
+
+安装
+
+cd cryptography-0.4
+python setup.py build
+python setup.py install
+发现安装的时候报错：
+
+No package 'libffi' found
+于是下载libffi下载并安装
+
+wget ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
+cd libffi-3.2.1
+make
+make install
+安装后发现仍然报错
+
+Package libffi was not found in the pkg-config search path.
+    Perhaps you should add the directory containing `libffi.pc'
+    to the PKG_CONFIG_PATH environment variable
+    No package 'libffi' found
+于是设置：PKG_CONFIG_PATH
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+再次安装scrapy
+
+pip install scrapy
+幸运女神都去哪儿了？
+
+ImportError: libffi.so.6: cannot open shared object file: No such file or directory
+于是
+
+whereis libffi
+libffi: /usr/local/lib/libffi.a /usr/local/lib/libffi.la /usr/local/lib/libffi.so
+已经正常安装，网上搜索了一通，发现是LD_LIBRARY_PATH没设置，于是
+
+export LD_LIBRARY_PATH=/usr/local/lib
+于是继续安装cryptography-0.4
+
+./configure
+make
+make install
+此时正确安装，没有报错信息了。
+
+5、继续安装scrapy
+
+pip install scrapy
+看着提示信息：
+
+Building wheels for collected packages: cryptography
+  Running setup.py bdist_wheel for cryptography
+在这里停了好久，在想幸运女神是不是到了。等了一会
+
+Requirement already satisfied (use --upgrade to upgrade): zope.interface>=3.6.0 in /usr/local/lib/python2.7/site-packages/zope.interface-4.1.2-py2.7-linux-i686.egg (from Twisted>=10.0.0->scrapy)
+Collecting cryptography>=0.7 (from pyOpenSSL->scrapy)
+  Using cached cryptography-0.9.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /usr/local/lib/python2.7/site-packages (from zope.interface>=3.6.0->Twisted>=10.0.0->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): idna in /usr/local/lib/python2.7/site-packages (from cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): pyasn1 in /usr/local/lib/python2.7/site-packages (from cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): enum34 in /usr/local/lib/python2.7/site-packages (from cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): ipaddress in /usr/local/lib/python2.7/site-packages (from cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): cffi>=0.8 in /usr/local/lib/python2.7/site-packages (from cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): ordereddict in /usr/local/lib/python2.7/site-packages (from enum34->cryptography>=0.7->pyOpenSSL->scrapy)
+Requirement already satisfied (use --upgrade to upgrade): pycparser in /usr/local/lib/python2.7/site-packages (from cffi>=0.8->cryptography>=0.7->pyOpenSSL->scrapy)
+Building wheels for collected packages: cryptography
+  Running setup.py bdist_wheel for cryptography
+  Stored in directory: /root/.cache/pip/wheels/d7/64/02/7258f08eae0b9c930c04209959c9a0794b9729c2b64258117e
+Successfully built cryptography
+Installing collected packages: cryptography
+  Found existing installation: cryptography 0.4
+    Uninstalling cryptography-0.4:
+      Successfully uninstalled cryptography-0.4
+Successfully installed cryptography-0.9
+显示如此的信息。看到此刻，内流马面。谢谢CCAV，感谢MTV，钓鱼岛是中国的。终于安装成功了。
+
+6、测试scrapy
+
+创建测试脚本
+
+cat > myspider.py <<EOF
+from scrapy import Spider, Item, Field
+class Post(Item):
+  title = Field()
+class BlogSpider(Spider):
+  name, start_urls = 'blogspider', ['http://www.cnblogs.com/rwxwsblog/']
+  def parse(self, response):
+    return [Post(title=e.extract()) for e in response.css("h2 a::text")]
+EOF
+测试脚本能否正常运行
+
+scrapy runspider myspider.py
+2015-06-06 20:25:16 [scrapy] INFO: Scrapy 1.0.0rc2 started (bot: scrapybot)
+2015-06-06 20:25:16 [scrapy] INFO: Optional features available: ssl, http11
+2015-06-06 20:25:16 [scrapy] INFO: Overridden settings: {}
+2015-06-06 20:25:16 [py.warnings] WARNING: :0: UserWarning: You do not have a working installation of the service_identity module: 'No module named service_identity'.  Please install it from <https://pypi.python.org/pypi/service_identity> and make sure all of its dependencies are satisfied.  Without the service_identity module and a recent enough pyOpenSSL to support it, Twisted can perform only rudimentary TLS client hostname verification.  Many valid certificate/hostname mappings may be rejected.
+
+2015-06-06 20:25:16 [scrapy] INFO: Enabled extensions: CloseSpider, TelnetConsole, LogStats, CoreStats, SpiderState
+2015-06-06 20:25:16 [scrapy] INFO: Enabled downloader middlewares: HttpAuthMiddleware, DownloadTimeoutMiddleware, UserAgentMiddleware, RetryMiddleware, DefaultHeadersMiddleware, MetaRefreshMiddleware, HttpCompressionMiddleware, RedirectMiddleware, CookiesMiddleware, ChunkedTransferMiddleware, DownloaderStats
+2015-06-06 20:25:16 [scrapy] INFO: Enabled spider middlewares: HttpErrorMiddleware, OffsiteMiddleware, RefererMiddleware, UrlLengthMiddleware, DepthMiddleware
+2015-06-06 20:25:16 [scrapy] INFO: Enabled item pipelines: 
+2015-06-06 20:25:16 [scrapy] INFO: Spider opened
+2015-06-06 20:25:16 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2015-06-06 20:25:16 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2015-06-06 20:25:17 [scrapy] DEBUG: Crawled (200) <GET http://www.cnblogs.com/rwxwsblog/> (referer: None)
+2015-06-06 20:25:17 [scrapy] INFO: Closing spider (finished)
+2015-06-06 20:25:17 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 226,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 5383,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2015, 6, 6, 12, 25, 17, 310084),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 7,
+ 'log_count/WARNING': 1,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2015, 6, 6, 12, 25, 16, 863599)}
+2015-06-06 20:25:17 [scrapy] INFO: Spider closed (finished)
+运行正常（此时心中窃喜，^_^....）。
+
+7、创建自己的scrapy项目（此时换了一个会话）
+
+scrapy startproject tutorial
+输出以下信息
+
+Traceback (most recent call last):
+  File "/usr/local/bin/scrapy", line 9, in <module>
+    load_entry_point('Scrapy==1.0.0rc2', 'console_scripts', 'scrapy')()
+  File "/usr/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 552, in load_entry_point
+    return get_distribution(dist).load_entry_point(group, name)
+  File "/usr/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2672, in load_entry_point
+    return ep.load()
+  File "/usr/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2345, in load
+    return self.resolve()
+  File "/usr/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2351, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/usr/local/lib/python2.7/site-packages/Scrapy-1.0.0rc2-py2.7.egg/scrapy/__init__.py", line 48, in <module>
+    from scrapy.spiders import Spider
+  File "/usr/local/lib/python2.7/site-packages/Scrapy-1.0.0rc2-py2.7.egg/scrapy/spiders/__init__.py", line 10, in <module>
+    from scrapy.http import Request
+  File "/usr/local/lib/python2.7/site-packages/Scrapy-1.0.0rc2-py2.7.egg/scrapy/http/__init__.py", line 11, in <module>
+    from scrapy.http.request.form import FormRequest
+  File "/usr/local/lib/python2.7/site-packages/Scrapy-1.0.0rc2-py2.7.egg/scrapy/http/request/form.py", line 9, in <module>
+    import lxml.html
+  File "/usr/local/lib/python2.7/site-packages/lxml/html/__init__.py", line 42, in <module>
+    from lxml import etree
+ImportError: /usr/lib/libxml2.so.2: version `LIBXML2_2.9.0' not found (required by /usr/local/lib/python2.7/site-packages/lxml/etree.so)
+心中无数个草泥马再次狂奔。怎么又不行了？难道会变戏法？定定神看了下：ImportError: /usr/lib/libxml2.so.2: version `LIBXML2_2.9.0' not found (required by /usr/local/lib/python2.7/site-packages/lxml/etree.so)。这是那样的熟悉呀！想了想，这怎么和前面的ImportError: libffi.so.6: cannot open shared object file: No such file or directory那么类似呢？于是
+
+8、添加环境变量
+
+export LD_LIBRARY_PATH=/usr/local/lib
+再次运行：
+
+scrapy startproject tutorial
+输出以下信息：
+
+[root@bogon scrapy]# scrapy startproject tutorial
+2015-06-06 20:35:43 [scrapy] INFO: Scrapy 1.0.0rc2 started (bot: scrapybot)
+2015-06-06 20:35:43 [scrapy] INFO: Optional features available: ssl, http11
+2015-06-06 20:35:43 [scrapy] INFO: Overridden settings: {}
+New Scrapy project 'tutorial' created in:
+    /root/scrapy/tutorial
+
+You can start your first spider with:
+    cd tutorial
+    scrapy genspider example example.com
+尼玛的终于成功了。由此可见，scrapy运行的时候需要 LD_LIBRARY_PATH 环境变量的支持。可以考虑将其加入环境变量中
+
+vi /etc/profile
+添加：export LD_LIBRARY_PATH=/usr/local/lib 这行（前面的PKG_CONFIG_PATH也可以考虑添加进来，export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH）
+
+保存后检查是否存在异常：
+
+source /etc/profile
+开一个新的会话运行
+
+scrapy runspider myspider.py
+发现正常运行，可见LD_LIBRARY_PATH是生效的。至此scrapy就算正式安装成功了。
+
+查看scrapy版本：运行scrapy version，看了下scrapy的版本为“Scrapy 1.0.0rc2”
+
+9、编程外的思考(感谢阅读到此的你，我自己都有点晕了。)
+
+有没有更好的安装方式呢？我的这种安装方式是否有问题？有的话请告诉我。（很多依赖包我采用pip和easy_install都无法安装，感觉是pip配置文件配置源的问题）
+一定要看官方的文档，Google和百度出来的结果往往是碎片化的，不全面。这样可以少走很多弯路，减少不必要的工作量。
+遇到的问题要先思考，想想是什么问题再Google和百度。
+解决问题要形成文档，方便自己也方便别人。
+10、参考文档
+
+http://scrapy.org/
+
+http://doc.scrapy.org/en/master/
+
+http://blog.csdn.net/slvher/article/details/42346887
+
+http://blog.csdn.net/niying/article/details/27103081
+
+http://www.cnblogs.com/xiaoruoen/archive/2013/02/27/2933854.html
