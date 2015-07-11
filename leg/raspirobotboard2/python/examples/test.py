@@ -74,7 +74,10 @@ def test_motors():
 
     rr.set_motors(0.5, 0, 1, 0)
     confirm("Is one motor going forwards at half speed?")
-    
+
+    rr.set_motors(0.1, 0, 1, 0)
+    confirm("Is one motor going forwards at 0.1 speed?")
+
     rr.set_motors(1, 1, 1, 1)
     confirm("Are both motors going backwards?")
     
@@ -97,9 +100,9 @@ def testI2C():
     ex_8x8_pixels.display_pattern()
     confirm("Did the display draw a line at a time?")
 
-test_leds()
+#test_leds()
 #test_oc()
-test_switches()
+#test_switches()
 test_motors()
 test_ranger()
 #testI2C()
