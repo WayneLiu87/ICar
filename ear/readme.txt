@@ -28,6 +28,8 @@ step 2: nodejs安装
   make(树莓派下这个步骤比较长，几个小时或10几个小时，注意不能断电）
   
 step 3: 安装 Juliusjs
-
-
+ bower install juliusjs --save
+ 
 step 4: 测试
+ git clone https://github.com/zzmp/juliusjs.git
+ 编辑测试程序：juliusjs/js/下的server.js, index.html
