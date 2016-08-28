@@ -1,0 +1,43 @@
+{
+  "name": "juliusjs",
+  "version": "0.0.0-pre",
+  "homepage": "https://github.com/zzmp/juliusjs",
+  "authors": [
+    "zzmp <zmp@umich.edu>"
+  ],
+  "description": "A speech recognition library for the web",
+  "main": [
+    "dist/julius.js",
+    "dist/worker.js",
+    "dist/listener/converter.js",
+    "dist/listener/resampler.js"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "speech",
+    "recognition",
+    "julius",
+    "keyword",
+    "spotting",
+    "transcribe",
+    "transcription"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.0-pre",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.0-pre",
+    "commit": "5189373196271f34d516e3c0548a4a5654b520c1"
+  },
+  "_source": "https://github.com/zzmp/juliusjs.git",
+  "_target": "^0.0.0-pre",
+  "_originalSource": "juliusjs"
+}
