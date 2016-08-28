@@ -27,9 +27,18 @@ step 2: nodejs安装
   ./configure
   make(树莓派下这个步骤比较长，几个小时或10几个小时，注意不能断电）
   
+  安装express, bower
+  
 step 3: 安装 Juliusjs
  bower install juliusjs --save
  
 step 4: 测试
+ cd  ear
  git clone https://github.com/zzmp/juliusjs.git
- 编辑测试程序：juliusjs/js/下的server.js, index.html
+ 
+ 若要在PI上测试juliusjs：以pi作为服务器，然后用nodejs 创建https的web server, 本机页面打开（访问时注意将是https为协议头)
+ https web server部署参考：http://blog.fens.me/nodejs-https-server/
+ 安装在 ear/juliusjs/https_js/nodejs-https 目录下
+ 编辑测试程序：server.js, index.html
+ 
+ 
