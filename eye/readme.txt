@@ -1,2 +1,4 @@
-﻿小P，把你的计划写在这里吧。git不怎么用，是这么建分支的吗？
-﻿恩，可以的
+Step1 ORC 识别: 参考 tesseract, https://github.com/tesseract-ocr/tesseract
+Step2 人脸识别
+Step3 表情识别
+Step4 手势识别
