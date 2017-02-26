@@ -36,21 +36,21 @@ while True:
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_UP:
-                rr.forward()
+                rr.forward(speed=0.1)
                 rr.set_led1(True)
                 rr.set_led2(True)
             elif event.key == K_DOWN:
                 rr.set_led1(True)
                 rr.set_led2(True)
-                rr.reverse()
+                rr.reverse(speed=0.1)
             elif event.key == K_RIGHT:
                 rr.set_led1(False)
                 rr.set_led2(True)
-                rr.right()
+                rr.right(speed=0.1)
             elif event.key == K_LEFT:
                 rr.set_led1(True)
                 rr.set_led2(False)
-                rr.left()
+                rr.left(speed=0.1)
             elif event.key == K_SPACE:
                 rr.stop()
                 rr.set_led1(False)
