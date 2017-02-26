@@ -76,10 +76,10 @@ def save_wave_file(filename, data):
 
 
 
-NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
-SAMPLING_RATE = 16000    # 取样频率
-LEVEL = 1100            # 声音保存的阈值
-COUNT_NUM = 6          # NUM_SAMPLES个取样之内出现COUNT_NUM个大于LEVEL的取样则记录声音
+NUM_SAMPLES = 24000      # pyAudio内部缓存的块的大小
+SAMPLING_RATE = 48000    # 取样频率
+LEVEL = 32780         # 声音保存的阈值
+COUNT_NUM = 18          # NUM_SAMPLES个取样之内出现COUNT_NUM个大于LEVEL的取样则记录声音
 SAVE_LENGTH = 8         # 声音记录的最小长度：SAVE_LENGTH * NUM_SAMPLES 个取样
 
 # 开启声音输入
