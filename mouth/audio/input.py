@@ -5,6 +5,7 @@ from datetime import datetime
 import wave
 import os
 from asr import asrer
+import subprocess
 
 
 import json
@@ -133,7 +134,7 @@ while True:
                                           voice="en-US_AllisonVoice"))
 
             f = wave.open("data/output.wav","rb")
-            raspberryTalk(f)
+            raspberryTalk("data/output.wav")
             chunk = 1024
             """
             pr = PyAudio()
