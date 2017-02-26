@@ -70,7 +70,7 @@ def raspberryTalk(filename):
     # This will call mplayer and will play the sound
     cmd = "omxplayer -o local " + filename
     print "--->",cmd
-    os.popen(cmd)
+    os.system(cmd)
 
 NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
 SAMPLING_RATE = 16000    # 取样频率
