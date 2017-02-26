@@ -1,8 +1,8 @@
-from raspirobotboard import *
+from rrb2 import *
 import pygame
 from pygame.locals import *
 
-rr = RaspiRobot()
+rr = RRB2()
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
