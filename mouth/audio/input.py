@@ -65,7 +65,9 @@ def save_wave_file(filename, data):
     wf.writeframes("".join(data))
     wf.close()
 
-
+def raspberryTalk(filename):
+    # This will call mplayer and will play the sound
+    subprocess.call(["mplayer", filename],shell=False,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
 NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
 SAMPLING_RATE = 16000    # 取样频率
@@ -131,7 +133,9 @@ while True:
                                           voice="en-US_AllisonVoice"))
 
             f = wave.open("data/output.wav","rb")
+            raspberryTalk(f)
             chunk = 1024
+            """
             pr = PyAudio()
             streamr = pr.open(format = pr.get_format_from_width(f.getsampwidth()),
                             channels = f.getnchannels(),
@@ -144,6 +148,7 @@ while True:
             streamr.stop_stream()
             streamr.close()
             pr.terminate()
+            """
 
 
 
