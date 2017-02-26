@@ -69,6 +69,7 @@ def save_wave_file(filename, data):
 def raspberryTalk(filename):
     # This will call mplayer and will play the sound
     cmd = "omxplayer -o local " + filename
+    print "--->",cmd
     os.popen(cmd)
 
 NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
