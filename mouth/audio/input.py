@@ -5,7 +5,7 @@ from datetime import datetime
 import wave
 import os
 from asr import asrer
-import subprocess
+
 
 
 import json
@@ -68,7 +68,8 @@ def save_wave_file(filename, data):
 
 def raspberryTalk(filename):
     # This will call mplayer and will play the sound
-    subprocess.call(["mplayer", filename],shell=False,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    cmd = "omxplayer -o local " + filename
+    os.popen(cmd)
 
 NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
 SAMPLING_RATE = 16000    # 取样频率
