@@ -31,26 +31,28 @@ def update_distance():
     pygame.draw.rect(screen, (255, 0, 0), Rect((10, 10),(proximity, 50)))
     pygame.display.update()
 
+speed = 0.3
+runtime = 1
 
 while True:
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_UP:
-                rr.forward(2, 0.2)
+                rr.forward(runtime, speed)
                 rr.set_led1(True)
                 rr.set_led2(True)
             elif event.key == K_DOWN:
                 rr.set_led1(True)
                 rr.set_led2(True)
-                rr.reverse(2, 0.3)
+                rr.reverse(runtime, speed)
             elif event.key == K_RIGHT:
                 rr.set_led1(False)
                 rr.set_led2(True)
-                rr.right(2, 0.2)
+                rr.right(runtime, speed)
             elif event.key == K_LEFT:
                 rr.set_led1(True)
                 rr.set_led2(False)
-                rr.left(2, 0.2)
+                rr.left(runtime, speed)
             elif event.key == K_SPACE:
                 rr.stop()
                 rr.set_led1(False)
