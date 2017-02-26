@@ -6,7 +6,15 @@ import wave
 import os
 from asr import asrer
 
-
+def raspberryTalk(filename):
+    # This will call mplayer and will play the sound
+    cmd = "omxplayer -o local " + filename
+    print "--->",cmd
+    os.system(cmd)def raspberryTalk(filename):
+    # This will call mplayer and will play the sound
+    cmd = "omxplayer -o local " + filename
+    print "--->",cmd
+    os.system(cmd)
 
 import json
 from watson_developer_cloud import ConversationV1
@@ -69,11 +77,7 @@ def save_wave_file(filename, data):
     wf.writeframes("".join(data))
     wf.close()
 
-def raspberryTalk(filename):
-    # This will call mplayer and will play the sound
-    cmd = "omxplayer -o local " + filename
-    print "--->",cmd
-    os.system(cmd)
+
 
 NUM_SAMPLES = 8000      # pyAudio内部缓存的块的大小
 SAMPLING_RATE = 16000    # 取样频率
