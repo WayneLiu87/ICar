@@ -104,5 +104,5 @@ def testI2C():
 #test_oc()
 #test_switches()
 test_motors()
-test_ranger()
+#test_ranger()
 #testI2C()

@@ -47,7 +47,7 @@ class RaspiRobot:
         GPIO.output(RIGHT_DIR_PIN, right_dir)
 
     def forward(self, seconds=0):
-        self.set_motors(1, 0, 1, 0)
+        self.set_motors(0.1, 0, 0.1, 0)
         if seconds > 0:
             time.sleep(seconds)
             self.stop()
@@ -56,19 +56,19 @@ class RaspiRobot:
         self.set_motors(0, 0, 0, 0)
  
     def reverse(self, seconds=0):
-        self.set_motors(1, 1, 1, 1)
+        self.set_motors(0.1, 1, 0.1, 1)
         if seconds > 0:
             time.sleep(seconds)
             self.stop()
     
     def left(self, seconds=0):
-        self.set_motors(1, 0, 1, 1)
+        self.set_motors(0.1, 0, 0.1, 1)
         if seconds > 0:
             time.sleep(seconds)
             self.stop()
 
     def right(self, seconds=0):
-        self.set_motors(1, 1, 1, 0)
+        self.set_motors(0.1, 1, 0.1, 0)
         if seconds > 0:
             time.sleep(seconds)
             self.stop()
