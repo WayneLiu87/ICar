@@ -42,7 +42,9 @@ with open('data/output.wav', 'wb') as audio_file:
         text_to_speech.synthesize(robot_say, accept='audio/wav',
                                   voice="en-US_AllisonVoice"))
 
-f = wave.open("data/output.wav","rb")
+#f = wave.open("data/output.wav","rb")
+raspberryTalk("data/output.wav")
+"""
 chunk = 1024
 pr = PyAudio()
 streamr = pr.open(format = pr.get_format_from_width(f.getsampwidth()),
@@ -56,6 +58,7 @@ while data !="":
 streamr.stop_stream()
 streamr.close()
 pr.terminate()
+"""
 
 # 将data中的数据保存到名为filename的WAV文件中
 def save_wave_file(filename, data):
@@ -135,9 +138,10 @@ while True:
                     text_to_speech.synthesize(robot_say, accept='audio/wav',
                                           voice="en-US_AllisonVoice"))
 
-            f = wave.open("data/output.wav","rb")
             raspberryTalk("data/output.wav")
-            chunk = 1024
+            #f = wave.open("data/output.wav","rb")
+
+            #chunk = 1024
             """
             pr = PyAudio()
             streamr = pr.open(format = pr.get_format_from_width(f.getsampwidth()),
