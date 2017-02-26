@@ -1,0 +1,48 @@
+{
+   "confidence" : 86,
+   "decoded" : "todd that they'll go on to go",
+   "details" : [
+      {
+         "confidence" : 66,
+         "end" : 57,
+         "start" : 21,
+         "word" : "todd"
+      },
+      {
+         "confidence" : 74,
+         "end" : 183,
+         "start" : 141,
+         "word" : "that"
+      },
+      {
+         "confidence" : 71,
+         "end" : 327,
+         "start" : 306,
+         "word" : "they'll"
+      },
+      {
+         "confidence" : 98,
+         "end" : 348,
+         "start" : 327,
+         "word" : "go"
+      },
+      {
+         "confidence" : 97,
+         "end" : 873,
+         "start" : 795,
+         "word" : "on"
+      },
+      {
+         "confidence" : 99,
+         "end" : 954,
+         "start" : 939,
+         "word" : "to"
+      },
+      {
+         "confidence" : 100,
+         "end" : 1128,
+         "start" : 1092,
+         "word" : "go"
+      }
+   ]
+}
