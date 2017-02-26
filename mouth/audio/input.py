@@ -6,15 +6,7 @@ import wave
 import os
 from asr import asrer
 
-def raspberryTalk(filename):
-    # This will call mplayer and will play the sound
-    cmd = "omxplayer -o local " + filename
-    print "--->",cmd
-    os.system(cmd)def raspberryTalk(filename):
-    # This will call mplayer and will play the sound
-    cmd = "omxplayer -o local " + filename
-    print "--->",cmd
-    os.system(cmd)
+
 
 import json
 from watson_developer_cloud import ConversationV1
@@ -25,6 +17,11 @@ text_to_speech = TextToSpeechV1(
     password='qwGs7PCwneNx',
     x_watson_learning_opt_out=True)  # Optional flag
 
+def raspberryTalk(filename):
+    # This will call mplayer and will play the sound
+    cmd = "omxplayer -o local " + filename
+    print "--->",cmd
+    os.system(cmd)
 
 
 
