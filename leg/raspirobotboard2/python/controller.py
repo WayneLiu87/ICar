@@ -21,9 +21,17 @@ class controller:
     def right(self):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
+<<<<<<< HEAD
         self.rr.forward(self.turn_time, self.turn_speed)
+=======
+        self.rr.forward(self.runtime, self.turn_speed)
+>>>>>>> eba1ca235e15f6416185d6c67b1218ddd9ff5de4
 
     def left(self):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
+<<<<<<< HEAD
         self.rr.reverse(self.turn_time, self.turn_speed)
+=======
+        self.rr.reverse(self.runtime, self.turn_speed)
+>>>>>>> eba1ca235e15f6416185d6c67b1218ddd9ff5de4
