@@ -57,7 +57,8 @@ while True:
     else:
         # 将save_buffer中的数据写入WAV文件，WAV文件的文件名是保存的时刻
         if len(save_buffer) > 0:
-            filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S") + ".wav"
+            #filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S") + ".wav"
+            filename = "last_record"
             save_wave_file(os.path.join("data", filename), save_buffer)
             save_buffer = []
             print filename, "saved"
@@ -66,9 +67,12 @@ while True:
             say = baidu_asr(token, os.path.join("data", filename)).encode("utf8")
             print say
 
-            api_caller.act(say)
-
             if(say != ""):
                 baidu_say(say)
+
+            try:
+                api_caller.act(say)
+            except:
+                print "Something looks bad on respberry server."
 
 

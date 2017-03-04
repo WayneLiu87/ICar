@@ -6,6 +6,7 @@ class controller:
         self.speed = 0.3
         self.turn_speed = 0.5
 	self.turn_time = 0.5
+        self.turn_time = 0.5
         self.runtime = 1
 
     def forward(self):
@@ -18,20 +19,16 @@ class controller:
         self.rr.set_led2(True)
         self.rr.right(self.runtime, self.speed)
 
-    def right(self):
+    def right(self, turn_time=self.turn_time):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-<<<<<<< HEAD
         self.rr.forward(self.turn_time, self.turn_speed)
-=======
         self.rr.forward(self.runtime, self.turn_speed)
->>>>>>> eba1ca235e15f6416185d6c67b1218ddd9ff5de4
+        self.rr.forward(turn_time, self.turn_speed)
 
-    def left(self):
+    def left(self, turn_time=self.turn_time):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-<<<<<<< HEAD
         self.rr.reverse(self.turn_time, self.turn_speed)
-=======
         self.rr.reverse(self.runtime, self.turn_speed)
->>>>>>> eba1ca235e15f6416185d6c67b1218ddd9ff5de4
+        self.rr.reverse(turn_time, self.turn_speed)
