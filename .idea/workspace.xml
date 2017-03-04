@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92b8856f-95e2-4bf3-a2dd-2ec0a1249ff6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ear/baidu/data/test.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ear/baidu/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ear/baidu/asr.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ear/baidu/call_api.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ear/baidu/input.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/leg/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/leg/raspirobotboard2/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/leg/raspirobotboard2/python/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/mouth/baidu/asr.py" afterPath="$PROJECT_DIR$/ear/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/mouth/baidu/hello.wav" afterPath="$PROJECT_DIR$/ear/baidu/data/hello.wav" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leg/raspirobotboard2/python/control_api.py" afterPath="$PROJECT_DIR$/leg/raspirobotboard2/python/control_api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mouth/audio/webrtcvad_test.py" afterPath="$PROJECT_DIR$/mouth/audio/webrtcvad_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mouth/baidu/tts.py" afterPath="$PROJECT_DIR$/mouth/baidu/tts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ear/baidu/asr.py" afterPath="$PROJECT_DIR$/ear/baidu/asr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py" afterPath="$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py" />
     </list>
     <ignored path="ICar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controller.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="23" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.8304498">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -77,17 +64,19 @@
         <entry file="file://$PROJECT_DIR$/ear/baidu/asr.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="30" />
-              <folding />
+              <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+              <folding>
+                <element signature="e#17#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="input.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="input.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ear/baidu/input.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.270073">
-              <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
               <folding>
                 <element signature="e#16#52#0" expanded="true" />
               </folding>
@@ -141,13 +130,13 @@
         <option value="$PROJECT_DIR$/mouth/audio/input.py" />
         <option value="$PROJECT_DIR$/mouth/audio/audio_input_test.py" />
         <option value="$PROJECT_DIR$/mouth/audio/webrtcvad_test.py" />
-        <option value="$PROJECT_DIR$/ear/baidu/asr.py" />
         <option value="$PROJECT_DIR$/leg/raspirobotboard2/python/rover.py" />
         <option value="$PROJECT_DIR$/ear/baidu/controller.py" />
         <option value="$PROJECT_DIR$/leg/raspirobotboard2/python/control_api.py" />
-        <option value="$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py" />
         <option value="$PROJECT_DIR$/ear/baidu/input.py" />
         <option value="$PROJECT_DIR$/ear/baidu/call_api.py" />
+        <option value="$PROJECT_DIR$/ear/baidu/asr.py" />
+        <option value="$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py" />
       </list>
     </option>
   </component>
@@ -960,7 +949,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40514904" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5704607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32655826" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1263,28 +1252,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ear/baidu/asr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leg/raspirobotboard2/python/control_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ear/baidu/asr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+          <folding>
+            <element signature="e#17#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ear/baidu/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <element signature="e#16#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1297,13 +1290,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ear/baidu/input.py">
+    <entry file="file://$PROJECT_DIR$/leg/raspirobotboard2/python/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.270073">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding>
-            <element signature="e#16#52#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.8304498">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

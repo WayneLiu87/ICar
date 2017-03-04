@@ -72,8 +72,12 @@ def baidu_asr(token, speech_file):
         fs = urllib2.urlopen(url=request, data=json_data)
 
         result_str = fs.read().decode('utf-8')
-        json_resp = json.loads(result_str)['result'][0]
-        return json_resp
+        try:
+            json_resp = json.loads(result_str)['result'][0]
+            return json_resp
+        except:
+            print "没有输入"
+            return ""
 
 
 def baidu_say(text):

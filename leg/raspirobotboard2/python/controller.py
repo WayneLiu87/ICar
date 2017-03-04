@@ -20,9 +20,9 @@ class controller:
     def right(self):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-        self.rr.reverse(self.runtime, self.speed)
+        self.rr.forward(self.runtime, self.speed)
 
     def left(self):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-        self.rr.forward(self.runtime, self.speed)
+        self.rr.reverse(self.runtime, self.speed)
