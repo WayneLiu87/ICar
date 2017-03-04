@@ -68,6 +68,7 @@ while True:
 
             api_caller.act(say)
 
-            baidu_say(say)
+            if(say != ""):
+                baidu_say(say)
 
 
