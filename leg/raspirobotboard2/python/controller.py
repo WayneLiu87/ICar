@@ -4,7 +4,8 @@ class controller:
     def __init__(self):
         self.rr = RRB2()
         self.speed = 0.3
-        self.turn_speed = 0.8
+        self.turn_speed = 0.5
+        self.turn_time = 0.5
         self.runtime = 1
 
     def forward(self):
@@ -17,12 +18,12 @@ class controller:
         self.rr.set_led2(True)
         self.rr.right(self.runtime, self.speed)
 
-    def right(self):
+    def right(self, turn_time=self.turn_time):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-        self.rr.forward(self.runtime, self.turn_speed)
+        self.rr.forward(turn_time, self.turn_speed)
 
-    def left(self):
+    def left(self, turn_time=self.turn_time):
         self.rr.set_led1(False)
         self.rr.set_led2(True)
-        self.rr.reverse(self.runtime, self.turn_speed)
+        self.rr.reverse(turn_time, self.turn_speed)
