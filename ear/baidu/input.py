@@ -58,7 +58,7 @@ while True:
         # 将save_buffer中的数据写入WAV文件，WAV文件的文件名是保存的时刻
         if len(save_buffer) > 0:
             #filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S") + ".wav"
-            filename = "last_record"
+            filename = "last_record.wav"
             save_wave_file(os.path.join("data", filename), save_buffer)
             save_buffer = []
             print filename, "saved"
