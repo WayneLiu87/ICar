@@ -16,7 +16,8 @@
 
 	硬件平台扩展：超声波模块，二自由度云台
 	语音识别，TTS，图像识别，能够构建自己的系统（开源工具），而不是调用第三方的API（解决速度慢的问题）
-		拟用juliusjs/cmusphinx做语音识别，ekko做TTS	
+		拟用juliusjs/cmusphinx/kaldi做语音识别，
+		CMU的Flite做TTS	
 	小车控制：用超声波测距来避障（条件反射系统）
 	用神经网络做控制器
 	
