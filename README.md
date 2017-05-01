@@ -26,7 +26,7 @@
 	自然语言理解:
 		文本情感分类：参考：https://github.com/dennybritz/cnn-text-classification-tf
 	知识库，简单推理
-		做知识库的入门知识，希望能有这方面经验的人提供些资料
+		做知识库的入门知识，希望能有这方面经验的朋友提供些指导或者能参与开发(联系liuwen.yzu@gmail.com)
 	语音识别，图像识别（state of art成果研究，尝试实现。）
 	对话系统：简单问答
 	
